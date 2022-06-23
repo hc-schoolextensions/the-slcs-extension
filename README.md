@@ -1,6 +1,6 @@
 # the-slcs-extension
 
-The SLCS Extension is a custom extension for SLCS. It combines the functionality of many of our extensions. 
+The SLCS Extension is a custom extension for SLCS. It is designed for use by students. The extension combines the functionality of many of our extensions into one easy-to-use extension. 
 
 ## Features:
 - Automatically fills in district code and user type for student gradebook login.
