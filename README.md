@@ -5,11 +5,11 @@ The SLCS Extension is a custom extension for SLCS. It is designed for use by stu
 ## Features:
 - Provides quick and easy access to useful apps for students.
 - Prevents students from navigating to other websites or apps during standardized testing.
-- Reminds students who have logged into their browser with their school Google account on a non-school device that they are still being monitored by the school.
+- Reminds students who have logged into their browser with their school Google account on a non-school device that they are being monitored by the school.
 - Automatically fills in district code and user type for student gradebook login.
 - Provides extra information on the "website blocked" page if a student tries to view a blocked website.
 - Allows users to quickly complete simple tasks via context menu items and keyboard shortcuts.
-- Gives users the option to disable parts of the extension if they wish.
+- Gives users the option to disable parts of the extension if they wish to do so.
 
 ### Context menu options:
 
@@ -43,6 +43,7 @@ The SLCS Extension is a custom extension for SLCS. It is designed for use by stu
 | commands | Allows the extension to add keyboard shortcuts to the browser. | Allows the extension to add the keyboard shortcuts listed above. |
 | declarativeNetRequest | Allows the extension to block certain sites. | Allows the extension to enable ad blocking (per the user's request). |
 | storage / unlimitedStorage | Allows the extension to store data in the browser. | Allows the extension to store and retrieve the user's settings. |
+| scripting | Allows the extension to execute scripts on open webpages from the service worker and extension pages. | Allows the extension to copy information to the clipboard. |
 
 ## Installation:
 - Extension ID: 
