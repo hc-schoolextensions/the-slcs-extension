@@ -1,0 +1,81 @@
+{
+  "manifest_version": 3,
+  "name": "SLCS",
+  "description": "Custom extension for SLCS.",
+  "author": "Hayden C",
+  "version": "0.1",
+  "icons": {
+    "128": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "contentSettings",
+    "commands",
+    "declarativeNetRequest",
+    "storage",
+    "unlimitedStorage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://logins2.renweb.com/logins/ParentsWeb-Login.aspx",
+        "*://sla-tx.client.renweb.com/pwr/"
+      ],
+      "js": [
+        "content_scripts/renweb.js"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.blocked.goguardian.com/*"
+      ],
+      "js": [
+        "content_scripts/goguardian.js"
+      ],
+      "css": [
+        "content_scripts/goguardian.css"
+      ]
+    },
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "content_scripts/osd.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "view-page-source": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      },
+      "description": "View page source"
+    },
+    "youtube-block-cookies": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+E",
+        "mac": "Command+Shift+E"
+      },
+      "description": "Toogle blocking cookies on YouTube"
+    }
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApdsef1+jak8jIsK/yj6K/Uu603DZeeZbD17mFDQe3+k1cboszFFG1W4XoTjWsG2vmtPhtlJo7k7xsEj66aeVJHnFfysWovDOa7ram5OFHCEmuxwk5pzbB2gVySzNkWJ5xMmihws3SE5rhBdC4bxmb8SrX+mXSVh2A4umfTskabnjWymtkoCYJ7WEpVFbA8SY+xAuWfgTWOdwNrafJXEB9n7eIfhyj8dkN4W3XQaFqEmzIWuNTk7lmk3pzOeAM2V7662DUuwx6Ks+RatveAa5B2FCc+Qxx1qOBP0bCbM/J834CiHwXgnU3LTUQqYRAtdGr3pxL4U5Jfl8owobT5S2cwIDAQAB",
+  "update_url": "https://theslcsextension.pages.dev/extension.xml"
+}
