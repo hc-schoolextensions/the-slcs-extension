@@ -30,9 +30,19 @@ The SLCS Extension is a custom extension for SLCS. It is designed for use by stu
 
 ### Keyboard shortcuts: 
 
-| Title | Shortcut | Mac Shortcut |
-| --------------- | --------------- | --------------- |
-| View page source | Ctrl+Shift+U | Command+Shift+U |
+| Title | Shortcut | Mac Shortcut | Condition |
+| --------------- | --------------- | --------------- | --------------- |
+| View page source | Ctrl+Shift+U | Command+Shift+U | None |
+| Toogle blocking cookies on YouTube | Ctrl+Shift+E | Command+Shift+E | Only on youtube.com or music.youtube.com
+
+## Options: 
+| Title | Description | Enabled by default | Condition |
+| ----- | ----------- | ------------------ | --------- |
+| Disable "Off Student Device" alert on webpages. | Prevents OSD alert from appearing on webpages. | No | Option only shows on non-ChromeOS devices. |
+| Enable extra context menu options. | Adds extra context menu options (detailed above). | Yes | None |
+| Enable extra keyboard shortcuts. | Adds extra keyboard shortcuts (detailed above). | Yes | None |
+| Enable ad and tracker blocking. | Blocks common ad and tracker sites. [[list](https://github.com/hc-schoolextensions/the-slcs-extension/blob/data/adblockfilters.txt)] | No | None |
+
 
 ## Permissions required:
 | Name | Description | Use |
@@ -49,4 +59,6 @@ The SLCS Extension is a custom extension for SLCS. It is designed for use by stu
 - Extension ID: 
 - Installation URL: https://theslcsextension.pages.dev/extension.xml
 
-&copy; Copyright 2022 [@hc-schoolextensions](https://github.dev/hc-schoolextensions/ '@hc-schoolextensions')
+## Notice:
+
+Copyright © [@hc-schoolextensions](https://github.dev/hc-schoolextensions/ '@hc-schoolextensions'), 2022. No part of the materials available through this repository may be copied, photocopied, reproduced, translated, or reduced to any electronic medium or machine-readable form, in whole or in part, without prior written consent of the owner, except through actions stated in the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#5-license-grant-to-other-users). Any other reproduction in any form without the permission of the owner is prohibited. All materials contained in this repository are protected by United States copyright law and may not be reproduced, distributed, transmitted, displayed, published, or broadcast without the prior written permission of the owner, except as stated in the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#5-license-grant-to-other-users). As stated in the [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#5-license-grant-to-other-users), the materials in this repository may be viewed and forked.
