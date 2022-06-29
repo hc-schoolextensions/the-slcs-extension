@@ -8,8 +8,7 @@ The SLCS Extension is a custom extension for SLCS. It is designed for use by stu
 - Reminds students who have logged into their browser with their school Google account on a non-school device that they are being monitored by the school.
 - Automatically fills in district code and user type for student gradebook login.
 - Provides extra information on the "website blocked" page if a student tries to view a blocked website.
-- Allows users to quickly complete simple tasks via context menu items and keyboard shortcuts.
-- Gives users the option to disable parts of the extension if they wish to do so.
+- Allows users to quickly complete tasks via context menu items and keyboard shortcuts.
 
 ## Wiki:
 To learn more about the SLCS Extension and its features, visit our [repository's wiki](https://github.com/hc-schoolextensions/the-slcs-extension/wiki).
