@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
         nweaPopupAllow: true,
         goguardianInfoPopup: false,
         goguardianInfo: true,
-        keyboardShortcuts: true
+        keyboardShortcuts: true,
+        allowCors: false
     }, function (items) {
         for (let name of Object.keys(items)) {
             document.getElementById(name).checked = items[name];

@@ -111,7 +111,13 @@
     </div>
     <p class="stlink" id="advanced">Advanced >></p>
     <div id="advancedContent" style="display: none; margin-left: 20px;">
-        <p class="link" id="clearLocalStorage">Reset settings</p>
+        <div class="form-check" style="margin-top: 5px;">
+            <input class="form-check-input" type="checkbox" id="allowCors">
+            <label class="form-check-label" for="allowCors">
+                Allow CORS.
+            </label>
+        </div>
+        <p class="link" id="clearLocalStorage" style="margin-top: 5px; color: red;">Reset settings</p>
     </div>
     <script src="page_assets/options/options.js"></script>
 </body>

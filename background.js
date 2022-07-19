@@ -21,11 +21,14 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
         enableYtCookieBlock(changes.ytCookieBlock.newValue);
     if (changes.nweaPopupAllow)
         enableNweaPopups(changes.nweaPopupAllow.newValue);
+    if (changes.allowCors)
+        enableDisableCors(changes.allowCors.newValue);
     return true
 });
 
 function enableContextMenus(enable) {
     if (enable === true || enable === undefined) {
+        chrome.contextMenus.removeAll();
         chrome.contentSettings.cookies.get({
             primaryUrl: "https://www.youtube.com/"
         }, function (details) {
@@ -202,7 +205,7 @@ function onClickHandler(info, tab) {
 chrome.contextMenus.onClicked.addListener(onClickHandler);
 
 function enableAdBlocking(enable) {
-    if (enable === true || enable === undefined) {
+    if (enable === true) {
         var adblockRequest = new Request('https://raw.githubusercontent.com/hc-schoolextensions/the-slcs-extension/data/adblockfilters.txt');
         var adblockRequest2 = new Request('https://raw.githubusercontent.com/hc-schoolextensions/the-slcs-extension/data/adblockexclusions.txt');
         fetch(adblockRequest)
@@ -215,22 +218,28 @@ function enableAdBlocking(enable) {
                 .then(exclusions => runAdBlock(exclusions.split(", ")));
 
             function runAdBlock(exclusions) {
-                filters.forEach((domain, index) => {
-                    let id = index + 1;
+                chrome.declarativeNetRequest.getDynamicRules(function (result) {
                     chrome.declarativeNetRequest.updateDynamicRules({
-                        addRules: [{
-                            id: id,
-                            priority: 1,
-                            action: {
-                                type: "block"
-                            },
-                            condition: {
-                                excludedInitiatorDomains: exclusions,
-                                urlFilter: domain,
-                                resourceTypes: ["sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket", "webtransport", "webbundle", "other"]
-                            },
-                        }, ],
-                        removeRuleIds: [id],
+                        removeRuleIds: range(result.length, 1)
+                    }, function () {
+                        filters.forEach((domain, index) => {
+                            let id = index + 1;
+                            chrome.declarativeNetRequest.updateDynamicRules({
+                                addRules: [{
+                                    id: id,
+                                    priority: 1,
+                                    action: {
+                                        type: "block"
+                                    },
+                                    condition: {
+                                        excludedInitiatorDomains: exclusions,
+                                        urlFilter: domain,
+                                        resourceTypes: ["sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket", "webtransport", "webbundle", "other"]
+                                    },
+                                }, ],
+                                removeRuleIds: [id],
+                            });
+                        });
                     });
                 });
             }
@@ -323,6 +332,18 @@ function copyDataUrl(ogURL) {
             args: [ogURL],
         });
     });
+}
+
+function enableDisableCors(allowcors) {
+    if (allowcors === true) {
+        chrome.declarativeNetRequest.updateEnabledRulesets({
+            enableRulesetIds: ["ruleset_1"]
+        });
+    } else {
+        chrome.declarativeNetRequest.updateEnabledRulesets({
+            disableRulesetIds: ["ruleset_1"]
+        });
+    }
 }
 
 chrome.commands.onCommand.addListener((command) => {
